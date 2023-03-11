@@ -1,18 +1,25 @@
 // Libs
+import { useEffect } from "react";
 import styled from "styled-components";
 
 // Icon
-import search from "../icons/search.svg";
+import searchIcon from "../icons/search.svg";
 
-const Search = ({ setSearch }) => {
+const Search = ({ search, setSearch }) => {
+  useEffect(() => {
+    setSearch(localStorage.getItem("inputValue"));
+  }, []);
+
   return (
     <Wrapper>
       <SearchBtn>
-        <img src={search} alt="search" />
+        <img src={searchIcon} alt="search" />
       </SearchBtn>
       <Input
+        value={search}
         onChange={(e) => {
           setSearch(e.target.value);
+          localStorage.setItem("inputValue", e.target.value);
         }}
         type="text"
         placeholder="Filter by name..."

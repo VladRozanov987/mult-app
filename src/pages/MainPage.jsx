@@ -26,7 +26,7 @@ const MainPage = () => {
   return (
     <Main>
       <Logo />
-      <Search setSearch={setSearch} />
+      <Search search={search} setSearch={setSearch} />
       <CharacterWrapper>
         <Character data={data} />
       </CharacterWrapper>
